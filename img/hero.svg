@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 620" fill="none">
+  <defs>
+    <clipPath id="arch">
+      <path d="M0 620V260a260 260 0 0 1 520 0V620z"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#arch)">
+    <rect width="520" height="620" fill="#26182b"/>
+    <circle cx="372" cy="176" r="48" fill="#a63d55"/>
+    <g stroke-width="3" stroke-linecap="round">
+      <path d="M0 140C120 50 200 250 320 160S480 60 520 110" stroke="#f8f3ee" opacity=".9"/>
+      <path d="M0 174C120 84 200 284 320 194S480 94 520 144" stroke="#d9778a"/>
+      <path d="M0 208C120 118 200 318 320 228S480 128 520 178" stroke="#c58a5b"/>
+      <path d="M0 242C120 152 200 352 320 262S480 162 520 212" stroke="#f8f3ee" opacity=".9"/>
+      <path d="M0 276C120 186 200 386 320 296S480 196 520 246" stroke="#d9778a"/>
+      <path d="M0 310C120 220 200 420 320 330S480 230 520 280" stroke="#c58a5b"/>
+      <path d="M0 344C120 254 200 454 320 364S480 264 520 314" stroke="#f8f3ee" opacity=".9"/>
+      <path d="M0 378C120 288 200 488 320 398S480 298 520 348" stroke="#d9778a"/>
+      <path d="M0 412C120 322 200 522 320 432S480 332 520 382" stroke="#c58a5b"/>
+      <path d="M0 446C120 356 200 556 320 466S480 366 520 416" stroke="#f8f3ee" opacity=".9"/>
+    </g>
+  </g>
+</svg>

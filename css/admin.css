@@ -1,0 +1,252 @@
+.admin-bar {
+    background: var(--ink);
+    color: #fff;
+}
+
+.admin-bar .brand {
+    color: #fff;
+}
+
+.admin-bar .brand img {
+    border-radius: 50%;
+    background: var(--cream);
+}
+
+.admin-bar .brand__name small {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.admin-bar__link {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.admin-bar__link:hover {
+    color: #fff;
+}
+
+.admin-main {
+    padding: 2rem 0 4rem;
+}
+
+.admin-title {
+    margin-bottom: 1.25rem;
+    font-size: 2rem;
+}
+
+.login-card {
+    max-width: 26rem;
+    margin: 1rem auto;
+    padding: 1.75rem;
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    background: #fff;
+}
+
+.login-card__title {
+    margin-bottom: 1.25rem;
+    font-size: 1.6rem;
+}
+
+.demo-credentials {
+    margin-bottom: 1.25rem;
+    padding: 1rem 1.1rem;
+    border-radius: 0.75rem;
+    background: var(--sand);
+}
+
+.demo-credentials__title {
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.demo-credentials dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.25rem 1rem;
+}
+
+.demo-credentials dt {
+    font-weight: 400;
+}
+
+.demo-credentials dd {
+    margin: 0;
+}
+
+.demo-credentials code {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.stat {
+    height: 100%;
+    padding: 1rem;
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    background: #fff;
+}
+
+.stat__value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.stat__label {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+.filter-bar {
+    display: grid;
+    align-items: end;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    background: #fff;
+}
+
+.filter-bar__buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.empty-state {
+    padding: 2rem;
+    border: 1px dashed var(--line);
+    border-radius: 1rem;
+    background: #fff;
+    text-align: center;
+    color: var(--muted);
+}
+
+.day-group {
+    margin-bottom: 2rem;
+}
+
+.day-group__title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 0.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.35rem;
+}
+
+.day-group__title span {
+    font-family: var(--bs-body-font-family);
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+.booking-card {
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: 0.6rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--accent);
+    border-radius: 0.75rem;
+    background: #fff;
+}
+
+.booking-card--completed {
+    border-left-color: #4f7a5a;
+}
+
+.booking-card--cancelled,
+.booking-card--no_show {
+    border-left-color: #9a8f9e;
+    opacity: 0.75;
+}
+
+.booking-card__time {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.booking-card__service {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.booking-card__service span {
+    margin-left: 0.5rem;
+    font-family: var(--bs-body-font-family);
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+.booking-card__customer {
+    margin: 0.15rem 0 0;
+}
+
+.booking-card__meta {
+    margin: 0.15rem 0 0;
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+.booking-card__side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+}
+
+.booking-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.2rem 0.7rem;
+    border-radius: 2rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.status-badge--confirmed {
+    background: #f3dfe4;
+    color: #7d2438;
+}
+
+.status-badge--completed {
+    background: #dcebdf;
+    color: #2f5a3a;
+}
+
+.status-badge--cancelled {
+    background: #e8e3ea;
+    color: #4b4150;
+}
+
+.status-badge--no_show {
+    background: #f6e8d6;
+    color: #7a4a14;
+}
+
+@media (min-width: 768px) {
+    .filter-bar {
+        grid-template-columns: repeat(3, 1fr) auto;
+    }
+
+    .booking-card {
+        grid-template-columns: 8.5rem 1fr auto;
+        align-items: center;
+    }
+
+    .booking-card__side {
+        align-items: flex-end;
+    }
+}
