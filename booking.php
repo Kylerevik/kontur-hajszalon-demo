@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 require __DIR__ . '/includes/bootstrap.php';
 
+allow_methods(['GET', 'POST']);
+
 $pageTitle = 'Időpontfoglalás – Kontúr Hajszalon, Pécs';
 $pageDescription = 'Foglalj időpontot online a Kontúr Hajszalonba: válaszd ki a szolgáltatást, a napot és a szabad időpontot.';
 $activePage = '';
@@ -10,7 +12,7 @@ $showMobileCta = false;
 $scripts = ['js/booking.js'];
 
 $values = [
-    'service_id' => (string) ($_GET['service'] ?? ''),
+    'service_id' => input_string($_GET, 'service'),
     'booking_date' => '',
     'start_time' => '',
     'customer_name' => '',
@@ -23,8 +25,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $values = $result['values'];
     $errors = $result['errors'];
 
+    $statusCode = 422;
+
     if (!csrf_is_valid()) {
         $errors['form'] = 'Az űrlap érvényessége lejárt. Kérjük, küldd el újra.';
+        $statusCode = 403;
     }
 
     if (!$errors) {
@@ -39,8 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $values['customer_phone']
             );
         } catch (PDOException | RuntimeException $exception) {
-            error_log('Foglalási hiba: ' . $exception->getMessage());
+            error_log('Foglalási hiba: ' . $exception::class . ', kód: ' . $exception->getCode());
             $errors['form'] = 'Technikai hiba történt. Kérjük, próbáld újra, vagy hívj minket telefonon.';
+            $statusCode = 500;
         }
 
         if ($code !== null) {
@@ -48,8 +54,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         if (!$errors) {
             $errors['start_time'] = 'Ezt az időpontot közben valaki lefoglalta. Válassz egy másikat.';
+            $statusCode = 409;
         }
     }
+
+    http_response_code($statusCode);
 }
 
 $servicesByCategory = fetch_services_by_category();
@@ -70,7 +79,7 @@ require __DIR__ . '/includes/header.php';
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
-                <form id="booking-form" method="post" action="booking.php" data-slots-url="api/slots.php">
+                <form id="booking-form" method="post" action="booking.php#booking-form" data-slots-url="api/slots.php">
                     <?= csrf_field() ?>
                     <div class="hp-field" aria-hidden="true">
                         <label for="website">Ezt a mezőt hagyd üresen</label>
@@ -79,6 +88,15 @@ require __DIR__ . '/includes/header.php';
 
 <?php if (isset($errors['form'])): ?>
                     <div class="alert alert-danger" role="alert"><?= e($errors['form']) ?></div>
+<?php elseif ($errors): ?>
+                    <div class="alert alert-danger" role="alert">
+                        <p class="fw-semibold mb-1">A foglalást még nem tudtuk elküldeni:</p>
+                        <ul class="mb-0">
+<?php foreach ($errors as $message): ?>
+                            <li><?= e($message) ?></li>
+<?php endforeach; ?>
+                        </ul>
+                    </div>
 <?php endif; ?>
 
                     <fieldset class="booking-step">

@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 require dirname(__DIR__) . '/includes/bootstrap.php';
 
+allow_methods(['GET', 'POST']);
+
 if (is_admin()) {
     redirect('bookings.php');
 }
@@ -11,10 +13,11 @@ $error = '';
 $username = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = trim((string) ($_POST['username'] ?? ''));
-    $password = (string) ($_POST['password'] ?? '');
+    $username = input_string($_POST, 'username');
+    $password = input_string($_POST, 'password', false);
 
     if (!csrf_is_valid()) {
+        http_response_code(403);
         $error = 'Az űrlap érvényessége lejárt. Kérjük, próbáld újra.';
     } else {
         $statement = db()->prepare('SELECT id, password_hash FROM admins WHERE username = ?');
@@ -29,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // A késleltetés lassítja a jelszótalálgatást.
         sleep(1);
+        http_response_code(401);
         $error = 'Hibás felhasználónév vagy jelszó.';
     }
 }

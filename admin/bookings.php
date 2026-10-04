@@ -4,6 +4,7 @@ declare(strict_types=1);
 require dirname(__DIR__) . '/includes/bootstrap.php';
 require dirname(__DIR__) . '/includes/admin_bookings.php';
 
+allow_methods(['GET', 'POST']);
 require_admin();
 
 $db = db();

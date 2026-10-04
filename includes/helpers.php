@@ -19,6 +19,40 @@ function e(string|int|float|null $value): string
     return htmlspecialchars((string) $value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
 
+/** Szöveges kérésparaméter; hiányzó vagy tömbként küldött érték esetén üres szöveg. */
+function input_string(array $source, string $key, bool $trim = true): string
+{
+    $value = $source[$key] ?? '';
+
+    if (!is_string($value)) {
+        return '';
+    }
+
+    return $trim ? trim($value) : $value;
+}
+
+/** 405-tel leállítja a kérést, ha a módszer nem engedélyezett. A GET mellé a HEAD is jár. */
+function allow_methods(array $methods, bool $json = false): void
+{
+    $allowed = in_array('GET', $methods, true) ? [...$methods, 'HEAD'] : $methods;
+
+    if (in_array($_SERVER['REQUEST_METHOD'], $allowed, true)) {
+        return;
+    }
+
+    $message = 'A kérés módja nem engedélyezett.';
+    http_response_code(405);
+    header('Allow: ' . implode(', ', $allowed));
+
+    if ($json) {
+        echo json_encode(['error' => $message], JSON_UNESCAPED_UNICODE);
+    } else {
+        header('Content-Type: text/plain; charset=utf-8');
+        echo $message;
+    }
+    exit;
+}
+
 function redirect(string $url): never
 {
     header('Location: ' . $url);

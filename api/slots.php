@@ -5,6 +5,7 @@ require dirname(__DIR__) . '/includes/bootstrap.php';
 
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
+allow_methods(['GET'], true);
 
 function describe_slots(PDO $db, DateTimeImmutable $date, array $service, array $slots): string
 {

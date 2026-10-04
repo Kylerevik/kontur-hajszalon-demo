@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 require __DIR__ . '/includes/bootstrap.php';
 
+allow_methods(['GET']);
+
 $pageTitle = 'Kontúr Hajszalon, Pécs – hajvágás, festés, szakálligazítás';
 $pageDescription = 'Hajvágás, festés, melír és szakálligazítás Pécs belvárosában. Foglalj időpontot online, a szolgáltatás idejére szabva.';
 $activePage = 'home';

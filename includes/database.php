@@ -21,7 +21,8 @@ function db(): PDO
                 ]
             );
         } catch (PDOException $e) {
-            error_log('Adatbázis-kapcsolati hiba: ' . $e->getMessage());
+            // Az üzenet a gazdagépet és a felhasználónevet is tartalmazza, ezért csak a kód kerül a naplóba.
+            error_log('Adatbázis-kapcsolati hiba, kód: ' . $e->getCode());
             http_response_code(503);
             exit('Az oldal ideiglenesen nem érhető el. Kérjük, próbáld újra később.');
         }

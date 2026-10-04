@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 require __DIR__ . '/includes/bootstrap.php';
 
+allow_methods(['GET']);
+
 $pageTitle = 'Szolgáltatások és árak – Kontúr Hajszalon, Pécs';
 $pageDescription = 'Női és férfi hajvágás, hajfestés, melír, balayage és szakálligazítás árakkal és időtartammal. Foglalj online a Kontúr Hajszalonba Pécsett.';
 $activePage = 'services';

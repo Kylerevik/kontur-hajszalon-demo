@@ -3,8 +3,10 @@ declare(strict_types=1);
 
 require __DIR__ . '/includes/bootstrap.php';
 
-$code = $_GET['code'] ?? '';
-$booking = is_string($code) && preg_match('/^[A-Z0-9]{8}$/', $code) ? find_booking_by_code($code) : null;
+allow_methods(['GET']);
+
+$code = input_string($_GET, 'code');
+$booking = preg_match('/^[A-Z0-9]{8}$/', $code) ? find_booking_by_code($code) : null;
 
 if ($booking === null) {
     http_response_code(404);

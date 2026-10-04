@@ -10,16 +10,17 @@ const BOOKING_CODE_ALPHABET = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
 function validate_booking_input(array $post): array
 {
     $values = [
-        'service_id' => trim((string) ($post['service_id'] ?? '')),
-        'booking_date' => trim((string) ($post['booking_date'] ?? '')),
-        'start_time' => trim((string) ($post['start_time'] ?? '')),
-        'customer_name' => trim((string) ($post['customer_name'] ?? '')),
-        'customer_phone' => trim((string) ($post['customer_phone'] ?? '')),
+        'service_id' => input_string($post, 'service_id'),
+        'booking_date' => input_string($post, 'booking_date'),
+        'start_time' => input_string($post, 'start_time'),
+        'customer_name' => input_string($post, 'customer_name'),
+        'customer_phone' => input_string($post, 'customer_phone'),
     ];
     $errors = [];
 
     // A rejtett mezőt csak robotok töltik ki.
-    if (trim((string) ($post['website'] ?? '')) !== '') {
+    $trap = $post['website'] ?? '';
+    if (!is_string($trap) || trim($trap) !== '') {
         $errors['form'] = 'A foglalást nem sikerült rögzíteni. Kérjük, próbáld újra.';
     }
 
