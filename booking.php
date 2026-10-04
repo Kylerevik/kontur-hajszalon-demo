@@ -6,6 +6,7 @@ require __DIR__ . '/includes/bootstrap.php';
 $pageTitle = 'Időpontfoglalás – Kontúr Hajszalon, Pécs';
 $pageDescription = 'Foglalj időpontot online a Kontúr Hajszalonba: válaszd ki a szolgáltatást, a napot és a szabad időpontot.';
 $activePage = '';
+$showMobileCta = false;
 $scripts = ['js/booking.js'];
 
 $values = [
@@ -65,10 +66,10 @@ require __DIR__ . '/includes/header.php';
     </div>
 </section>
 
-<section class="section pt-0">
+<section class="section pt-4">
     <div class="container">
         <div class="row">
-            <div class="col-lg-9 col-xl-8">
+            <div class="col-lg-8">
                 <form id="booking-form" method="post" action="booking.php" data-slots-url="api/slots.php">
                     <?= csrf_field() ?>
                     <div class="hp-field" aria-hidden="true">
@@ -132,6 +133,15 @@ require __DIR__ . '/includes/header.php';
                     <button class="btn btn-accent btn-lg" type="submit">Foglalás elküldése</button>
                 </form>
             </div>
+            <aside class="col-lg-4 d-none d-lg-block">
+                <div class="help-card">
+                    <p class="help-card__title">Inkább felhívnál?</p>
+                    <p>Telefonon is foglalhatsz, vagy szólhatsz, ha változik a terved.</p>
+                    <a class="help-card__phone" href="<?= e(phone_link(SALON_PHONE)) ?>"><?= e(SALON_PHONE) ?></a>
+                    <p class="help-card__subtitle">Nyitvatartás</p>
+                    <?php require __DIR__ . '/includes/hours_list.php'; ?>
+                </div>
+            </aside>
         </div>
     </div>
 </section>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" fill="none" stroke-linecap="round" preserveAspectRatio="xMidYMid slice">
+  <path d="M-20 40C200 -80 380 180 620 60S1000 -70 1220 30" stroke="#f8f3ee" stroke-opacity="0.16" stroke-width="1.6"/>
+  <path d="M-20 82C200 -38 380 222 620 102S1000 -28 1220 72" stroke="#e08a9c" stroke-opacity="0.3" stroke-width="1.6"/>
+  <path d="M-20 124C200 4 380 264 620 144S1000 14 1220 114" stroke="#c58a5b" stroke-opacity="0.22" stroke-width="1.6"/>
+  <path d="M-20 166C200 46 380 306 620 186S1000 56 1220 156" stroke="#f8f3ee" stroke-opacity="0.16" stroke-width="1.6"/>
+  <path d="M-20 208C200 88 380 348 620 228S1000 98 1220 198" stroke="#e08a9c" stroke-opacity="0.3" stroke-width="1.6"/>
+  <path d="M-20 250C200 130 380 390 620 270S1000 140 1220 240" stroke="#c58a5b" stroke-opacity="0.22" stroke-width="1.6"/>
+  <path d="M-20 292C200 172 380 432 620 312S1000 182 1220 282" stroke="#f8f3ee" stroke-opacity="0.16" stroke-width="1.6"/>
+  <path d="M-20 334C200 214 380 474 620 354S1000 224 1220 324" stroke="#e08a9c" stroke-opacity="0.3" stroke-width="1.6"/>
+  <path d="M-20 376C200 256 380 516 620 396S1000 266 1220 366" stroke="#c58a5b" stroke-opacity="0.22" stroke-width="1.6"/>
+  <path d="M-20 418C200 298 380 558 620 438S1000 308 1220 408" stroke="#f8f3ee" stroke-opacity="0.16" stroke-width="1.6"/>
+  <path d="M-20 460C200 340 380 600 620 480S1000 350 1220 450" stroke="#e08a9c" stroke-opacity="0.3" stroke-width="1.6"/>
+  <path d="M-20 502C200 382 380 642 620 522S1000 392 1220 492" stroke="#c58a5b" stroke-opacity="0.22" stroke-width="1.6"/>
+  <path d="M-20 544C200 424 380 684 620 564S1000 434 1220 534" stroke="#f8f3ee" stroke-opacity="0.16" stroke-width="1.6"/>
+  <path d="M-20 586C200 466 380 726 620 606S1000 476 1220 576" stroke="#e08a9c" stroke-opacity="0.3" stroke-width="1.6"/>
+</svg>

@@ -18,7 +18,7 @@ require __DIR__ . '/includes/header.php';
     </div>
 </section>
 
-<section class="section pt-0">
+<section class="section pt-4">
     <div class="container">
 <?php foreach ($servicesByCategory as $category => $services): ?>
         <h2 class="category-title"><?= e($category) ?></h2>

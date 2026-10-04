@@ -48,14 +48,14 @@ require __DIR__ . '/includes/header.php';
 ?>
 <section class="hero">
     <div class="container">
-        <div class="row align-items-center gy-5">
-            <div class="col-lg-7">
+        <div class="row align-items-end gy-4">
+            <div class="col-lg-7 pb-lg-5">
                 <p class="eyebrow"><?= e(SALON_CITY) ?>, <?= e(SALON_STREET) ?></p>
                 <h1 class="hero__title">Frizura, ami a te napodhoz igazodik.</h1>
                 <p class="hero__lead">Egy szék, egy vendég egyszerre. Nálunk nincs sorban állás és nincs rohanás: a hajvágásra, festésre vagy szakálligazításra pontosan annyi időt szánunk, amennyi kell.</p>
                 <div class="d-flex flex-wrap gap-2">
                     <a class="btn btn-accent btn-lg" href="booking.php">Időpontot foglalok</a>
-                    <a class="btn btn-outline-ink btn-lg" href="services.php">Szolgáltatások és árak</a>
+                    <a class="btn btn-outline-light btn-lg" href="services.php">Szolgáltatások és árak</a>
                 </div>
             </div>
             <div class="col-lg-5 text-center text-lg-end">
@@ -75,16 +75,22 @@ require __DIR__ . '/includes/header.php';
             <div class="col-lg-8">
                 <div class="row gy-4">
                     <div class="col-md-4">
-                        <h3 class="point__title">Egyszerre egy vendég</h3>
-                        <p class="mb-0">Nem kell várnod, és senki sem siet veled. Az időpontod csak a tiéd.</p>
+                        <div class="point">
+                            <h3 class="point__title">Egyszerre egy vendég</h3>
+                            <p class="mb-0">Nem kell várnod, és senki sem siet veled. Az időpontod csak a tiéd.</p>
+                        </div>
                     </div>
                     <div class="col-md-4">
-                        <h3 class="point__title">Beszélgetéssel kezdünk</h3>
-                        <p class="mb-0">Vágás vagy festés előtt átbeszéljük, mit szeretnél, és mi illik a hajadhoz és a mindennapjaidhoz.</p>
+                        <div class="point">
+                            <h3 class="point__title">Beszélgetéssel kezdünk</h3>
+                            <p class="mb-0">Vágás vagy festés előtt átbeszéljük, mit szeretnél, és mi illik a hajadhoz és a mindennapjaidhoz.</p>
+                        </div>
                     </div>
                     <div class="col-md-4">
-                        <h3 class="point__title">Előre tudod az árat</h3>
-                        <p class="mb-0">Minden szolgáltatásnál látod, mennyibe kerül és meddig tart, így a napodat is be tudod osztani.</p>
+                        <div class="point">
+                            <h3 class="point__title">Előre tudod az árat</h3>
+                            <p class="mb-0">Minden szolgáltatásnál látod, mennyibe kerül és meddig tart, így a napodat is be tudod osztani.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -135,10 +141,12 @@ require __DIR__ . '/includes/header.php';
     </div>
 </section>
 
-<section class="cta-band">
-    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
-        <h2 class="cta-band__title mb-0">Keresel egy szabad időpontot?</h2>
-        <a class="btn btn-accent btn-lg" href="booking.php">Időpontfoglalás</a>
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-band d-flex flex-wrap justify-content-between align-items-center gap-3">
+            <h2 class="cta-band__title mb-0">Keresel egy szabad időpontot?</h2>
+            <a class="btn btn-accent btn-lg" href="booking.php">Időpontfoglalás</a>
+        </div>
     </div>
 </section>
 <?php require __DIR__ . '/includes/footer.php'; ?>

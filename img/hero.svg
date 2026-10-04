@@ -20,4 +20,5 @@
       <path d="M0 446C120 356 200 556 320 466S480 366 520 416" stroke="#f8f3ee" opacity=".9"/>
     </g>
   </g>
+  <path d="M2 620V260a258 258 0 0 1 516 0V620" stroke="#e08a9c" stroke-opacity=".55" stroke-width="3"/>
 </svg>
